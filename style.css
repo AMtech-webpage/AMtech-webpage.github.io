@@ -385,13 +385,14 @@ width: 100%;
 }
 
 /* Responsive behavior */
+/* Mobile version */
 @media screen and (max-width: 768px) {
   .nav {
     display: none;
     flex-direction: column;
     align-items: flex-start;
     background-color: #222;
-    padding: 15px;
+    padding: 20px;
     position: absolute;
     top: 50px;
     left: 0;
@@ -403,21 +404,29 @@ width: 100%;
     display: flex;
   }
 
-  .hamburger {
+  .nav a,
+  .nav button {
     display: block;
-  }
-
-  nav a,
-  nav button {
-    padding: 10px 0;
     color: white;
     text-decoration: none;
+    margin: 10px 0;
     width: 100%;
+    padding: 10px;
   }
 
-  nav button {
-    background: transparent;
-    border: none;
+  .login a {
+    color: white;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
   }
 }
 
