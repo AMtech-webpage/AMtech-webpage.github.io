@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Author" content="adeyemi abdulMuiz">
+  <meta name="description" content="AMtech Webpage">
+  <title>AMTECH.com</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation.css">
+  <script defer src="script.js"></script>
+
+  <style>
+    /* Carousel Styles */
+    .slides {
+      position: relative;
+      max-width: 100%;
+      height: 1500px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active-dot {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav class="nav" id="nav">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login</a>
+      <a href="learning.html">Learning</a>
+      <a href="contact.html">Contact</a>
+      <button class="login"><a href="login.html">Login</a></button>
+    </nav>
+  </header>
+
+  <!-- 🚀 Carousel Section -->
+  <div class="image" id="image">
+    <div class="slides">
+      <img src="pic/ChatGPT Image Aug 1, 2025, 06_16_41 PM.png" alt="Slide 1" class="slide active">
+      <img src="pic/chatgpt-amtech.png" alt="Slide 2" class="slide">
+      <img src="pic/moreport.jpg" alt="Slide 3" class="slide">
+    </div>
+  </div>
+
+  <!-- 💼 Courses -->
+  <div class="course" id="course">
+    <div class="fimage">
+      <img src="pic/joker.jpg" alt="">
+      <p>Become a full stack developer</p>
+      <button class="btn">Apply</button>
+    </div>
+    <div class="fimage">
+      <img src="pic/download (4).jpg" alt="" style="height:265px;">
+      <p>Learn HTML in a twinkle of an eye</p>
+      <button class="btn">Apply</button>
+    </div>
+    <div class="fimage">
+      <img src="pic/⚡️ BREAKTHROUGH_ Originality AI's Neural Content Authentication.jpeg" alt="">
+      <p>Learn Python in a few minutes</p>
+      <button class="btn">Apply</button>
+    </div>
+    <div class="fimage">
+      <img src="pic/hand.jpg" alt="">
+      <p>Learn JavaScript just in a few days</p>
+      <button class="btn">Apply</button>
+    </div>
+    <div class="fimage">
+      <img src="pic/robotpic" alt="">
+      <p>AI engineering course</p>
+      <button class="btn">Apply</button>
+    </div>
+  </div>
+
+  <!-- 🌐 Sections -->
+  <div class="p" id="p">
+    <p>
+      AMtech is here for you to create and develop amazing things. Are you ready to apply for a course?
+      You will be sent a verification email that you've joined AMtech's programming environment. Just by clicking, you can become a full-stack developer—a well-known programmer.
+    </p>
+    <img src="pic/com.jpeg" alt="">
+  </div>
+
+  <div class="p2">
+    <img src="pic/photo.jpeg" alt="">
+    <p>
+      We inspire, groom, and facilitate credible programmers. Join AMtech's super developing environment.
+      This platform allows you to learn multiple languages and grow fast.
+    </p>
+  </div>
+
+  <div class="explore">
+    <div class="explorediv">
+      <p>
+        AMtech is built for convenience and satisfaction, especially for beginners.
+        What do you think AMtech is built for? It's built for passionate tech lovers like you!
+      </p>
+    </div>
+    <img src="pic/Immerse yourself in a seamless learning journey….jpg" alt="">
+  </div>
+
+  <div class="lastpic">
+    <img src="pic/5g.jpg" alt="">
+    <p>New coding ecosystem for knowledgeable computer programmers.</p>
+  </div>
+
+  <footer style="color: #fff;">
+    Powered by AMtech
+    <p id="footer"></p>
+  </footer>
+
+  <!-- 📜 Carousel Script -->
+  <script>
+    let slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    // Create dots
+    const dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("dots");
+    document.querySelector(".slides").appendChild(dotsContainer);
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active-dot");
+      dot.addEventListener("click", () => showSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+        dots[i].classList.toggle("active-dot", i === index);
+      });
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentSlide + 1) % slides.length);
+    }
+
+    setInterval(nextSlide, 3000);
+    showSlide(0);
+  </script>
+</body>
+</html>

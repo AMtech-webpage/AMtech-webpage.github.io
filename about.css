@@ -1,0 +1,78 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background-color: aqua;
+}
+body{
+    animation: fade 2s ease-in-out;
+    transition:  .5s;
+    background-color:rgba(112, 222, 255, 0.705);
+}
+
+.nav a{
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 255, 255, 0.767);
+    background-color: aqua;
+    transition: .5s;
+    border-bottom: -6px;
+    cursor: pointer;
+}
+
+.nav .login{
+    width: 130px;
+    height: 50px;
+    border: 2px solid #fff;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+    opacity: 0;
+}
+.nav a:hover::after{
+    transition: transform .2s;
+    transform: scaleX(1);
+    
+}
+.nav a::after{
+    content: '';
+    position: absolute;
+      left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(132, 0, 255, 0.356);
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+.image{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.image img{
+    width: 100%;
+}
