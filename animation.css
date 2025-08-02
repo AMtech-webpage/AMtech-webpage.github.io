@@ -4,8 +4,9 @@
 }
 @keyframes recap{
     from{margin-top: 500px;}
-    to{margin-top: 0;}
+    to{margin-top: 20;}
 }
 #image{
     animation: recap 2s;
+
 }
