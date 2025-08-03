@@ -14,7 +14,7 @@ header{
 body{
     margin: 0;
     border: 0;
-    padding: 0;
+    padding: 2px 2px;
     background-position: center;
     background-size: cover;
     animation: fade 2s ease-in-out;
@@ -99,10 +99,23 @@ width: 20%;
     transform: scaleX(1);
     
 }
+.nav .home::after{
+    content: '';
+    position: absolute;
+      left: 0;
+      bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color:#fff;
+    border-radius: 5px;
+    transform: scaleX(1);
+    transform-origin: right;
+}
 .nav a::after{
     content: '';
     position: absolute;
       left: 0;
+      bottom: -6px;
     width: 100%;
     height: 3px;
     background-color:#fff;
@@ -208,7 +221,7 @@ width: 100%;
 @media screen and (max-width: 1000px) {
     header {
         flex-direction: column;
-        padding: 10px;
+        padding: 2px;
     }
 
     .nav a, .nav .login {
@@ -315,11 +328,14 @@ width: 100%;
   flex-wrap: wrap;
   gap: 15px;
 }
-
+.show {
+  display: none;
+}
 /* Responsive Nav Style */
 @media screen and (max-width: 1000px) {
-  .hamburger {
+  .show {
     display: block;
+    background: transparent;
   }
 
   .nav {
@@ -353,5 +369,15 @@ width: 100%;
     justify-content: space-between;
     align-items: center;
   }
+}
+#style {
+height: 600px;
+}
+.harm.open {
+  max-height: 2px; /* reduced height */
+  padding: 1em 0;
+}
+.harm {
+  overflow-y: auto;
 }
 
