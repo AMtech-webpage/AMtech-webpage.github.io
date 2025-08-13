@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login Page</title>
+  <title>Amtech Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -70,53 +70,64 @@
   </div>
 
   <script type="module">
-    // Firebase imports
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged }
-      from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    // Firebase imports (v12.1.0)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      signOut, 
+      onAuthStateChanged 
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-    // Your Firebase config from screenshot
+    // Your Firebase config
     const firebaseConfig = {
-      apiKey: "AIzaSyAWVDhq15wTiFVtaPMeG66HmVKV9IwuQ6g",
-      authDomain: "amtech-webpage.firebaseapp.com",
-      projectId: "amtech-webpage",
-      storageBucket: "amtech-webpage.appspot.com",
-      messagingSenderId: "322535031778",
-      appId: "1:322535031778:web:2c82b2cc77188f2cb62fbb",
-      measurementId: "G-WHWMYMDJ7K"
+      apiKey: "AIzaSyC3nxXvsvaRvsk14yjaOiSb7yR-_alBD3Q",
+      authDomain: "amtech-fa253.firebaseapp.com",
+      projectId: "amtech-fa253",
+      storageBucket: "amtech-fa253.firebasestorage.app",
+      messagingSenderId: "931876613661",
+      appId: "1:931876613661:web:9b14d68f72dff9395aa0f4",
+      measurementId: "G-WWHWY9KGBX"
     };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
     const auth = getAuth(app);
 
     // Sign Up
     document.getElementById("signupBtn").addEventListener("click", () => {
-      let email = document.getElementById("signupEmail").value;
-      let password = document.getElementById("signupPassword").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Sign up successful"))
+        .then(userCredential => {
+          alert("Sign up successful: " + userCredential.user.email);
+        })
         .catch(error => alert(error.message));
     });
 
     // Login
     document.getElementById("loginBtn").addEventListener("click", () => {
-      let email = document.getElementById("loginEmail").value;
-      let password = document.getElementById("loginPassword").value;
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Login successful"))
+        .then(userCredential => {
+          alert("Login successful: " + userCredential.user.email);
+        })
         .catch(error => alert(error.message));
     });
 
     // Logout
     document.getElementById("logoutBtn").addEventListener("click", () => {
       signOut(auth)
-        .then(() => alert("Logged out"))
+        .then(() => alert("Logged out successfully"))
         .catch(error => alert(error.message));
     });
 
     // Auth State Listener
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, user => {
       if (user) {
         console.log("User logged in:", user.email);
       } else {
