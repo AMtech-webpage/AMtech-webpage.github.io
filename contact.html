@@ -87,7 +87,9 @@ body{
   left: 0;
   z-index: 1040;
 }
-
+.show{
+  background-color: aqua;
+}
 /* Social Icons - horizontal line with scroll */
 .con-flex {
   display: flex;
@@ -131,6 +133,13 @@ body{
   display: flex;
   flex-direction: column;
 }
+#a{cursor: pointer;
+  color: white;
+  font-size: larger;
+  text-shadow: 2px 2px 2px blue,
+  3px 3px 3px red,
+  2px 2px 4px green;
+}
 /* Direct Message Form */
 .direct button { padding: 10px 15px; border:none; border-radius:5px; background:black; color:white; cursor:pointer; }
 
@@ -146,7 +155,7 @@ footer { text-align:center; margin-top:50px; padding:20px; background:#f8f9fa; }
 <!-- Top Navbar -->
 <nav class="navbar navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1"></span>
+    <span class="navbar-brand mb-0 h1" id="a">AMtech</span>
           <!-- Buttons -->
     <button class="btn btn-outline-dark" type="button" onclick="openSidebar()">
       <i class="fas fa-bars" style="font-size: large;"></i> 
@@ -187,7 +196,8 @@ footer { text-align:center; margin-top:50px; padding:20px; background:#f8f9fa; }
 <div class="contact" style="height: 500px; width: 100%;">
   <img src="pic/contact.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
 </div>
-
+<p></p>
+<p></p>
 <!-- Social Icons Section -->
 <div class="con-flex">
   <div class="face">
@@ -238,6 +248,23 @@ footer { text-align:center; margin-top:50px; padding:20px; background:#f8f9fa; }
   📞contact AMtech for 🚑 emergencies: +2349034089737;
   <p>Powered by AMtech @2025</p>
 </footer>
+<style>
+/* by default: show header, hide .show */
+
+.show {
+  display: none;
+}
+
+/* when screen is max 768px (phones/tablets) */
+@media (max-width: 768px) {
+  header {
+    display: none;   /* hide header on phone */
+  }
+  .show {
+    display: block;  /* show the top navbar with hamburger */
+  }
+}
+</style>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
