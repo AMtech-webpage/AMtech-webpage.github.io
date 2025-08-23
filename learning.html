@@ -1,0 +1,29 @@
+<button id="start">🎙 Start Talking</button>
+<p id="output"></p>
+
+<script>
+  const startBtn = document.getElementById("start");
+  const output = document.getElementById("output");
+
+  // Check if browser supports speech recognition
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+
+  recognition.lang = "en-US";  // You can change to "ar-SA" for Arabic, "fr-FR" for French, etc.
+  recognition.interimResults = false;
+
+  startBtn.onclick = () => {
+    recognition.start();
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    output.textContent = "You said: " + transcript;
+
+    // 🔹 Here you can send `transcript` to ChatGPT API instead of typing
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Error:", event.error);
+  };
+</script>
